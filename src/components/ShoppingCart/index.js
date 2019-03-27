@@ -15,6 +15,8 @@ const ShoppingCart = ({ store }) => {
     .map(product => product.cartAmount)
     .reduce((a, b) => a + b, 0);
 
+  const totalPositions = cart.length;
+
   const totalPrice =
     totalAmount * cart.map(product => product.price).reduce((a, b) => a + b, 0);
 
@@ -24,9 +26,9 @@ const ShoppingCart = ({ store }) => {
         <div className="shopping-cart__icon">
           <span
             className="shopping-cart__amount"
-            style={{ display: totalAmount > 0 ? 'block' : 'none' }}
+            style={{ display: totalPositions > 0 ? 'block' : 'none' }}
           >
-            {totalAmount}
+            {totalPositions}
           </span>
         </div>
         <p className="shopping-cart__total">{formatPrice(totalPrice)}</p>
