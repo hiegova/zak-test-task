@@ -16,7 +16,7 @@ const Content = ({ store }) => {
   return (
     <section className="content">
       {getActivCategoryName() ? (
-        <h2 className="content__title">Пекарня</h2>
+        <h2 className="content__title">{getActivCategoryName()}</h2>
       ) : (
         ''
       )}
