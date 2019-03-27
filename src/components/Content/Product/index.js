@@ -5,7 +5,7 @@ import {
   changeAmount,
   removeFromCart
 } from '../../../redux/actions/index';
-import { amountInCart, formatPrice } from '../../../utils';
+import { amountInCart, formatPrice, truncate } from '../../../utils';
 
 const Product = ({ product, store }) => {
   const state = store.getState();
@@ -29,16 +29,18 @@ const Product = ({ product, store }) => {
 
   return (
     <div className="product">
-      <img
-        className="product__image"
-        src={product.img.s150x150}
-        alt={product.title}
-      />
+      <div className="product_img-wrapper">
+        <img
+          className="product__image"
+          src={product.img.s150x150}
+          alt={product.title}
+        />
+      </div>
       <p className="product__price">
         {formatPrice(product.price)}
         <span className="product__curency"> грн</span>
       </p>
-      <p className="product__title">{product.title}</p>
+      <p className="product__title">{truncate(product.title, 50)}</p>
       <p className="product__volume">{product.weight || product.volume} г</p>
       <div className="add-to-cart">
         <button

@@ -20,6 +20,10 @@ export const amountInCart = (cart, product) => {
 };
 
 export const formatPrice = price => {
-  // return x.toFixed(2).replace('.', ',');
   return price.toFixed(2);
+};
+
+export const truncate = (str, num) => {
+  if (str.length > num) return str.slice(0, num > 3 ? num - 3 : num) + '...';
+  return str;
 };

@@ -6,7 +6,6 @@ import { changeAmount, removeFromCart } from '../../../redux/actions/index';
 const CartProduct = ({ product, store }) => {
   const { img, title, price, weight, volume, cartAmount } = product;
 
-  // const state = store.getState();
   const totalPrice = cartAmount * price;
 
   const onIncrease = () => {

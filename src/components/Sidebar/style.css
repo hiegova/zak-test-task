@@ -30,6 +30,10 @@
   margin-bottom: 12px;
 }
 
+.nav__list-button::first-letter {
+  text-transform: uppercase;
+}
+
 .nav__list-button {
   text-decoration: none;
   color: #404844;
@@ -39,6 +43,7 @@
   cursor: pointer;
   position: relative;
   outline: none;
+  text-align: left;
 }
 
 .nav__list-button--active {

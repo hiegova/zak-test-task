@@ -3,16 +3,23 @@ import './style.css';
 import Product from './Product';
 import { isLoaded } from '../../utils';
 
-// import products from '../../temp/data';
-
 const Content = ({ store }) => {
   const state = store.getState();
   const products = state.products.data;
   const isLoadingData = state.products.isLoadingData;
 
+  const getActivCategoryName = () => {
+    const activeClassElem = document.querySelector('.nav__list-button--active');
+    return activeClassElem ? activeClassElem.textContent : null;
+  };
+
   return (
     <section className="content">
-      <h2 className="content__title">Пекарня</h2>
+      {getActivCategoryName() ? (
+        <h2 className="content__title">Пекарня</h2>
+      ) : (
+        ''
+      )}
       <div className="content__products">
         {isLoadingData ? (
           <span>Загрузка...</span>
