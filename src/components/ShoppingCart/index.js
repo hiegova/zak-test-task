@@ -11,14 +11,11 @@ const ShoppingCart = ({ store }) => {
     document.getElementsByClassName('float-cart')[0].style.display = 'flex';
   };
 
-  const totalAmount = cart
-    .map(product => product.cartAmount)
-    .reduce((a, b) => a + b, 0);
-
   const totalPositions = cart.length;
 
-  const totalPrice =
-    totalAmount * cart.map(product => product.price).reduce((a, b) => a + b, 0);
+  const totalCartPrice = cart
+    .map(product => product.price * product.cartAmount)
+    .reduce((a, b) => a + b, 0);
 
   return (
     <React.Fragment>
@@ -31,9 +28,9 @@ const ShoppingCart = ({ store }) => {
             {totalPositions}
           </span>
         </div>
-        <p className="shopping-cart__total">{formatPrice(totalPrice)}</p>
+        <p className="shopping-cart__total">{formatPrice(totalCartPrice)}</p>
       </div>
-      <FloatCart totalPrice={totalPrice} store={store} />
+      <FloatCart totalPrice={totalCartPrice} store={store} />
     </React.Fragment>
   );
 };
