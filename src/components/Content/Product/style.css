@@ -25,7 +25,7 @@
 .product__image {
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .product__price {
@@ -43,13 +43,19 @@
   margin: 0;
 }
 
+.product__title-containrer {
+  position: relative;
+  width: 100%;
+}
+
 .product__volume {
   font-size: 14px;
   color: #b4b4b4;
   position: absolute;
-  right: 15px;
-  bottom: 20px;
+  right: 10px;
+  top: 0;
   margin: 0;
+  float: right;
 }
 
 .add-to-cart {

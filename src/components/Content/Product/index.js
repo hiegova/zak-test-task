@@ -6,6 +6,7 @@ import {
   removeFromCart
 } from '../../../redux/actions/index';
 import { amountInCart, formatPrice, truncate } from '../../../utils';
+import noImg from './img/no-img-icon.png';
 
 const Product = ({ product, store }) => {
   const state = store.getState();
@@ -32,7 +33,7 @@ const Product = ({ product, store }) => {
       <div className="product_img-wrapper">
         <img
           className="product__image"
-          src={product.img.s150x150}
+          src={product.img.s150x150 ? product.img.s150x150 : noImg}
           alt={product.title}
         />
       </div>
@@ -40,8 +41,18 @@ const Product = ({ product, store }) => {
         {formatPrice(product.price)}
         <span className="product__curency"> грн</span>
       </p>
-      <p className="product__title">{truncate(product.title, 50)}</p>
-      <p className="product__volume">{product.weight || product.volume} г</p>
+      <div className="product__title-containrer">
+        <p className="product__title">{truncate(product.title, 50)}</p>
+        <span className="product__volume">
+          <br />
+          <br />
+          {product.weight
+            ? product.weight + ' г'
+            : product.volume
+            ? product.volume + ' г'
+            : ''}
+        </span>
+      </div>
       <div className="add-to-cart">
         <button
           className="add-to-cart__btn"

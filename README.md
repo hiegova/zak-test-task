@@ -6,29 +6,30 @@ readme in progress...
 
 Проект реализован с испотльзованием **React + Redux**
 
-Bнициализирован при помощи npm-пакета **create-react-app**
+Инициализирован при помощи npm-пакета **create-react-app**
 
 Хранилище создается фабрикой StoreFactory.
-При инициализации используется localStorage для донных карзины.
+При инициализации используется localStorage для данных карзины.
+Передача хранилища копонентам react - явная.
 
 Структура хранилища:
 
 ```json
-(store = {
+{
   "cart": [],
   "categories": {
     "data": [],
-    "isLoadingData": false
+    "isLoadingData": boolean
   },
   "products": {
     "data": [],
-    "isLoadingData": false
+    "isLoadingData": boolean
   }
-})
+}
 ```
 
 Middleware fuctions:
 
 - saver - для сохраниения карзины в localStorage
-- logger - выводин на консоль детали диспетчеризаций
+- logger - выводит на консоль детали диспетчеризации
 - api - асинхронные запросы для получения категорий/товаров, и их сохранения в хранилище
