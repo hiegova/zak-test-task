@@ -1,16 +1,14 @@
 ## zak-test-task
 
-readme in progress...
-
 ### Детали реализации
 
-Проект реализован с испотльзованием **React + Redux**
+Проект реализован с использованием **React + Redux**
 
 Инициализирован при помощи npm-пакета **create-react-app**
 
 Хранилище создается фабрикой StoreFactory.
-При инициализации используется localStorage для данных карзины.
-Передача хранилища копонентам react - явная.
+При инициализации используется localStorage для данных корзины.
+Передача хранилища компонентам react - явная.
 
 Структура хранилища:
 
@@ -19,17 +17,17 @@ readme in progress...
   "cart": [],
   "categories": {
     "data": [],
-    "isLoadingData": boolean
+    "isLoadingData": bool
   },
   "products": {
     "data": [],
-    "isLoadingData": boolean
+    "isLoadingData": bool
   }
 }
 ```
 
 Middleware fuctions:
 
-- saver - для сохраниения карзины в localStorage
+- saver - для сохранения корзины в localStorage
 - logger - выводит на консоль детали диспетчеризации
 - api - асинхронные запросы для получения категорий/товаров, и их сохранения в хранилище
